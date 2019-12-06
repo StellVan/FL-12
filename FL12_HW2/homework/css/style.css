@@ -100,3 +100,16 @@ section::before {
   border-bottom: 60px solid transparent;
   border-left: 60px solid rgba(135, 206, 250, 1);
 }
+
+.contact-form {
+  text-align: right;
+}
+
+.contact-form input {
+  border: none;
+  border-bottom: 1px solid skyblue;
+}
+
+.contact-form textarea {
+  border-color: skyblue;
+}
