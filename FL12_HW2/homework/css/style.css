@@ -15,7 +15,7 @@
 
 .blocks .tm-team-description-container p:last-of-type {
   font-style: italic;
-  letter-spacing: 8px;
+  letter-spacing: 7px;
 }
 
 .tm-main-nav li:hover {
@@ -61,6 +61,7 @@
 
 .heading h2 {
   text-align: center;
+  color: #87cefa;
 }
 
 .heading ol {
@@ -97,7 +98,7 @@
 }
 
 .contact-form input:focus {
-  background-color: rgba(135, 206, 250, 1);
+  background-color: #87cefa;
 }
 
 .tm-sidebar,
@@ -111,7 +112,7 @@ section,
 section::before {
   content: "";
   border-bottom: 60px solid transparent;
-  border-left: 60px solid rgba(135, 206, 250, 1);
+  border-left: 60px solid #87cefa;
 }
 
 .contact-form {
@@ -120,7 +121,7 @@ section::before {
 
 .contact-form input {
   border: none;
-  border-bottom: 1px solid skyblue;
+  border-bottom: 1px solid #87cefa;
 }
 
 .contact-form textarea {
