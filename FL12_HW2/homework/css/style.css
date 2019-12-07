@@ -147,3 +147,64 @@ section::before {
   background-color: transparent;
   border: 0.5px solid skyblue;
 }
+
+@media print {
+  .tm-sidebar,
+  .tm-team-img,
+  .gallery-container,
+  .tm-main-content section:last-of-type,
+  section::before {
+    display: none;
+  }
+
+  .padding-medium,
+  .tm-main-content,
+  .heading ol,
+  .tm-content-box {
+    padding: 0;
+  }
+
+  .heading h2 {
+    font-weight: 300;
+  }
+
+  .heading ol {
+    list-style-type: none;
+    margin: 0 auto;
+    width: 300px;
+  }
+
+  .heading ol li:nth-of-type(odd) {
+    text-align: right;
+  }
+
+  .heading ol li:nth-of-type(even) {
+    text-align: left;
+  }
+
+  .text:after {
+    content: none;
+  }
+
+  .carousel-description {
+    max-width: 612px;
+  }
+
+  .flex-item {
+    text-align: center;
+    max-width: 638px;
+    margin: 0 auto;
+  }
+
+  .tm-content-box {
+    margin: 0;
+  }
+
+  .tm-section-title {
+    text-transform: uppercase;
+  }
+
+  .tm-banner-text {
+    animation: none;
+  }
+}
