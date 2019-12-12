@@ -1,1 +1,152 @@
-// Write your styles here
+body {
+  margin: 0;
+  background-color: $background_color;
+}
+
+.header {
+  background: url($background_url);
+  width: 1920px;
+  background-size: cover;
+  background-position: 50%;
+  border-radius: 0 0 688px 0 / 0 0 340px 0;
+}
+
+.header-wrap {
+  display: flex;
+  margin: 0 auto;
+  flex-flow: column;
+  width: 1536px;
+
+  div:last-of-type {
+    padding-top: 50px;
+    padding-bottom: 171px;
+    display: flex;
+    width: 482px;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.landing-logo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 125px;
+  text-align: center;
+
+  img {
+    width: 45px;
+    height: 45px;
+  }
+
+  p {
+    font-size: 24px;
+    color: $text_color;
+    font-family: "Source Sans Pro", sans-serif;
+  }
+
+  span {
+    display: block;
+    font-size: 10px;
+    color: $text_color;
+    font-family: "Source Sans Pro", sans-serif;
+  }
+}
+
+.header_heading {
+  margin: 0;
+  width: 550px;
+  color: $text_color;
+  font-size: 72px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  line-height: 81px;
+  padding-top: 33px;
+}
+
+.header_text {
+  color: $text_color;
+  font-family: "Source Sans Pro", sans-serif;
+  padding-top: 38px;
+  width: 580px;
+  line-height: 22px;
+}
+
+.header_button {
+  background-color: $button_color;
+  width: 140px;
+  height: 50px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  border: 0;
+  border-radius: 4px;
+}
+
+.login {
+  color: white;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.section {
+  margin: 0 auto;
+  width: 1100px;
+
+  &_text {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    color: $text_color;
+    font-family: "Source Sans Pro", sans-serif;
+    margin: 0;
+    padding-top: 30px;
+  }
+
+  &_card {
+    background-color: $card_color;
+    border-radius: 10px;
+    margin: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+
+    &_wrap {
+      padding-top: 13px;
+    }
+
+    &_img {
+      width: 420px;
+      height: 280px;
+      margin: 20px;
+      border-radius: 10px;
+    }
+
+    &_right_container {
+      width: 460px;
+      margin: 0 auto;
+    }
+
+    &_heading {
+      text-align: center;
+      font-size: 25px;
+      font-weight: 600;
+      color: white;
+      font-family: "Source Sans Pro", sans-serif;
+      padding-top: 43px;
+    }
+
+    &_text {
+      color: white;
+      font-family: "Source Sans Pro", sans-serif;
+      display: block;
+      padding-top: 15px;
+      padding-bottom: 40px;
+    }
+  }
+  &_link {
+    color: white;
+    padding-left: 180px;
+  }
+}
