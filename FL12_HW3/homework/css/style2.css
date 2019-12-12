@@ -34,18 +34,18 @@ body {
     height: 45px; }
   .landing-logo p {
     font-size: 24px;
-    color: white;
+    color: rgba(255, 255, 255, 0.671);
     font-family: "Source Sans Pro", sans-serif; }
   .landing-logo span {
     display: block;
     font-size: 10px;
-    color: white;
+    color: rgba(255, 255, 255, 0.671);
     font-family: "Source Sans Pro", sans-serif; }
 
 .header_heading {
   margin: 0;
   width: 550px;
-  color: white;
+  color: rgba(255, 255, 255, 0.671);
   font-size: 72px;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 700;
@@ -53,7 +53,7 @@ body {
   padding-top: 33px; }
 
 .header_text {
-  color: white;
+  color: rgba(255, 255, 255, 0.671);
   font-family: "Source Sans Pro", sans-serif;
   padding-top: 38px;
   width: 580px;
@@ -79,7 +79,7 @@ body {
   text-align: center;
   font-size: 40px;
   font-weight: 700;
-  color: white;
+  color: rgba(255, 255, 255, 0.671);
   font-family: "Source Sans Pro", sans-serif;
   margin: 0;
   padding-top: 30px; }
@@ -127,10 +127,10 @@ body {
   width: 1175px;
   height: 143px;
   border-radius: 10px;
-  background: linear-gradient(90deg, #649410 0%, #305ecd 100%); }
+  background: linear-gradient(90deg, #dea405 0%, #96324e 100%); }
   .section_banner_heading {
     font-family: "Source Sans Pro", sans-serif;
-    color: white;
+    color: rgba(255, 255, 255, 0.671);
     font-size: 30px;
     margin: 0;
     font-weight: 700; }
@@ -146,5 +146,25 @@ body {
     font-weight: 700;
     border: 0;
     border-radius: 4px; }
+
+.footer {
+  width: 1920px;
+  height: 230px;
+  background-color: #3b3f50;
+  margin-top: 25px; }
+  .footer-wrap {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 113px;
+    width: 1540px; }
+  .footer_text {
+    width: 310px;
+    font-family: "Source Sans Pro", sans-serif;
+    color: rgba(255, 255, 255, 0.671); }
+  .footer_logo p,
+  .footer span {
+    color: rgba(255, 255, 255, 0.671); }
 
 /*# sourceMappingURL=style2.css.map */

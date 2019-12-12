@@ -147,4 +147,24 @@ body {
     border: 0;
     border-radius: 4px; }
 
+.footer {
+  width: 1920px;
+  height: 230px;
+  background-color: #21232e;
+  margin-top: 25px; }
+  .footer-wrap {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 113px;
+    width: 1540px; }
+  .footer_text {
+    width: 310px;
+    font-family: "Source Sans Pro", sans-serif;
+    color: rgba(255, 255, 255, 0.671); }
+  .footer_logo p,
+  .footer span {
+    color: rgba(255, 255, 255, 0.671); }
+
 /*# sourceMappingURL=style1.css.map */

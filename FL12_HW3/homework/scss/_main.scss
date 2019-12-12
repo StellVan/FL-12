@@ -161,7 +161,11 @@ body {
     width: 1175px;
     height: 143px;
     border-radius: 10px;
-    background: linear-gradient(90deg, #649410 0%, #305ecd 100%);
+    background: linear-gradient(
+      90deg,
+      $gradient_first_color 0%,
+      $gradient_second_color 100%
+    );
 
     &_heading {
       font-family: "Source Sans Pro", sans-serif;
@@ -186,5 +190,32 @@ body {
       border: 0;
       border-radius: 4px;
     }
+  }
+}
+
+.footer {
+  width: 1920px;
+  height: 230px;
+  background-color: $card_color;
+  margin-top: 25px;
+
+  &-wrap {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 113px;
+    width: 1540px;
+  }
+
+  &_text {
+    width: 310px;
+    font-family: "Source Sans Pro", sans-serif;
+    color: rgba(255, 255, 255, 0.671);
+  }
+
+  &_logo p,
+  span {
+    color: rgba(255, 255, 255, 0.671);
   }
 }
