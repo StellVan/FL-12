@@ -4,9 +4,9 @@ body {
 
 .landing-logo {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   width: 125px;
   text-align: center; }
   .landing-logo img {
@@ -34,12 +34,13 @@ body {
     flex-flow: column;
     width: 1536px; }
     .header-wrap div:last-of-type {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
       padding-top: 50px;
       padding-bottom: 171px;
-      display: flex;
-      width: 482px;
-      justify-content: space-between;
-      align-items: center; }
+      width: 482px; }
   .header_heading {
     margin: 0;
     width: 550px;
@@ -109,6 +110,8 @@ body {
 .section_card {
   display: flex;
   justify-content: space-between;
+  align-items: end;
+  flex-wrap: nowrap;
   background-color: #3b3f50;
   border-radius: 10px;
   margin: 20px 0px; }
@@ -138,10 +141,11 @@ body {
   font-family: "Source Sans Pro", sans-serif;
   color: rgba(255, 255, 255, 0.836); }
 .section_banner {
-  margin: 0 auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: nowrap;
+  margin: 0 auto;
   position: relative;
   top: 100px;
   width: 1175px;
@@ -185,10 +189,11 @@ body {
   background-color: #3b3f50;
   margin-top: 25px; }
   .footer-wrap {
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: nowrap;
+    margin: 0 auto;
     padding-top: 113px;
     width: 1540px; }
   .footer_text {
@@ -199,5 +204,3 @@ body {
   .footer span {
     font-family: "Source Sans Pro", sans-serif;
     color: rgba(255, 255, 255, 0.836); }
-
-/*# sourceMappingURL=style2.css.map */

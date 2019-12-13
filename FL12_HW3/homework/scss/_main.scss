@@ -1,3 +1,10 @@
+@mixin flexSettings($justify, $align, $warp) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $warp;
+}
+
 @mixin mixButtons {
   background-color: $button_color;
   width: 140px;
@@ -43,10 +50,7 @@ body {
 }
 
 .landing-logo {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  @include flexSettings(space-between, center, wrap);
   width: 125px;
   text-align: center;
 
@@ -83,12 +87,10 @@ body {
     width: 1536px;
 
     div:last-of-type {
+      @include flexSettings(space-between, center, nowrap);
       padding-top: 50px;
       padding-bottom: 171px;
-      display: flex;
       width: 482px;
-      justify-content: space-between;
-      align-items: center;
     }
   }
 
@@ -154,8 +156,7 @@ body {
   }
 
   &_card {
-    display: flex;
-    justify-content: space-between;
+    @include flexSettings(space-between, end, nowrap);
     background-color: $card_color;
     border-radius: 10px;
     margin: 20px 0px;
@@ -195,10 +196,8 @@ body {
   }
 
   &_banner {
+    @include flexSettings(space-around, center, nowrap);
     margin: 0 auto;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
     position: relative;
     top: 100px;
     width: 1175px;
@@ -243,10 +242,8 @@ body {
   margin-top: 25px;
 
   &-wrap {
+    @include flexSettings(space-between, center, nowrap);
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding-top: 113px;
     width: 1540px;
   }
