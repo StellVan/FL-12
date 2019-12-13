@@ -2,26 +2,6 @@ body {
   margin: 0;
   background-color: #21232e; }
 
-.header {
-  background: url("../img/m-h-night.jpg");
-  width: 1920px;
-  background-size: cover;
-  background-position: 50%;
-  border-radius: 0 0 688px 0 / 0 0 340px 0; }
-
-.header-wrap {
-  display: flex;
-  margin: 0 auto;
-  flex-flow: column;
-  width: 1536px; }
-  .header-wrap div:last-of-type {
-    padding-top: 50px;
-    padding-bottom: 171px;
-    display: flex;
-    width: 482px;
-    justify-content: space-between;
-    align-items: center; }
-
 .landing-logo {
   display: flex;
   flex-wrap: wrap;
@@ -34,89 +14,129 @@ body {
     height: 45px; }
   .landing-logo p {
     font-size: 24px;
-    color: rgba(255, 255, 255, 0.671);
+    color: white;
     font-family: "Source Sans Pro", sans-serif; }
   .landing-logo span {
     display: block;
     font-size: 10px;
-    color: rgba(255, 255, 255, 0.671);
+    color: white;
     font-family: "Source Sans Pro", sans-serif; }
 
-.header_heading {
-  margin: 0;
-  width: 550px;
-  color: rgba(255, 255, 255, 0.671);
-  font-size: 72px;
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 700;
-  line-height: 81px;
-  padding-top: 33px; }
-
-.header_text {
-  color: rgba(255, 255, 255, 0.671);
-  font-family: "Source Sans Pro", sans-serif;
-  padding-top: 38px;
-  width: 580px;
-  line-height: 22px; }
-
-.header_button {
-  background-color: #e3ac00;
-  width: 140px;
-  height: 50px;
-  color: white;
-  font-size: 16px;
-  font-weight: 700;
-  border: 0;
-  border-radius: 4px; }
+.header {
+  background: url("../img/m-h-night.jpg");
+  width: 1920px;
+  background-size: cover;
+  background-position: 50%;
+  border-radius: 0 0 688px 0 / 0 0 340px 0; }
+  .header-wrap {
+    display: flex;
+    margin: 0 auto;
+    flex-flow: column;
+    width: 1536px; }
+    .header-wrap div:last-of-type {
+      padding-top: 50px;
+      padding-bottom: 171px;
+      display: flex;
+      width: 482px;
+      justify-content: space-between;
+      align-items: center; }
+  .header_heading {
+    margin: 0;
+    width: 550px;
+    color: white;
+    font-size: 72px;
+    line-height: 81px;
+    padding-top: 33px;
+    position: relative;
+    z-index: 1;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 700; }
+    .header_heading::after {
+      top: 140px;
+      width: 302px;
+      height: 51px;
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: -1;
+      background-color: #ff4e33; }
+  .header_text {
+    color: white;
+    font-family: "Source Sans Pro", sans-serif;
+    padding-top: 38px;
+    width: 580px;
+    line-height: 22px; }
+  .header_button {
+    background-color: #e3ac00;
+    width: 140px;
+    height: 50px;
+    color: rgba(255, 255, 255, 0.836);
+    font-size: 16px;
+    font-weight: 700;
+    border: 0;
+    border-radius: 4px; }
 
 .login {
-  color: white;
-  font-family: "Source Sans Pro", sans-serif;
   font-size: 19px;
-  font-weight: 600; }
+  font-weight: 600;
+  font-family: "Source Sans Pro", sans-serif;
+  color: rgba(255, 255, 255, 0.836); }
+
+.section_card_right_container, .section_card_wrap {
+  width: 460px;
+  margin: 0 auto; }
 
 .section_text {
   text-align: center;
   font-size: 40px;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.671);
-  font-family: "Source Sans Pro", sans-serif;
+  color: white;
   margin: 0;
-  padding-top: 30px; }
+  padding-top: 30px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  position: relative;
+  z-index: 1; }
+  .section_text::after {
+    top: 31px;
+    left: 954px;
+    width: 201px;
+    height: 47px;
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    background-color: #ff4e33; }
 .section_card {
+  display: flex;
+  justify-content: space-between;
   background-color: #3b3f50;
   border-radius: 10px;
-  margin: 20px 0px;
-  display: flex;
-  justify-content: space-between; }
+  margin: 20px 0px; }
   .section_card_wrap {
     width: 1100px;
-    margin: 0 auto;
     padding-top: 13px; }
   .section_card_img {
     width: 420px;
     height: 280px;
     margin: 20px;
     border-radius: 10px; }
-  .section_card_right_container {
-    width: 460px;
-    margin: 0 auto; }
   .section_card_heading {
     text-align: center;
     font-size: 25px;
     font-weight: 600;
-    color: white;
+    padding-top: 43px;
     font-family: "Source Sans Pro", sans-serif;
-    padding-top: 43px; }
+    color: rgba(255, 255, 255, 0.836); }
   .section_card_text {
-    color: white;
-    font-family: "Source Sans Pro", sans-serif;
     display: block;
     padding-top: 15px;
-    padding-bottom: 40px; }
+    padding-bottom: 40px;
+    font-family: "Source Sans Pro", sans-serif;
+    color: rgba(255, 255, 255, 0.836); }
 .section_link {
-  color: white;
-  padding-left: 180px; }
+  padding-left: 180px;
+  font-family: "Source Sans Pro", sans-serif;
+  color: rgba(255, 255, 255, 0.836); }
 .section_banner {
   margin: 0 auto;
   display: flex;
@@ -129,19 +149,31 @@ body {
   border-radius: 10px;
   background: linear-gradient(90deg, #dea405 0%, #96324e 100%); }
   .section_banner_heading {
-    font-family: "Source Sans Pro", sans-serif;
-    color: rgba(255, 255, 255, 0.671);
+    color: white;
     font-size: 30px;
     margin: 0;
-    font-weight: 700; }
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 700;
+    position: relative;
+    z-index: 1; }
+    .section_banner_heading::after {
+      top: -8px;
+      left: 119px;
+      width: 68px;
+      height: 47px;
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: -1;
+      background-color: #ff4e33; }
   .section_banner_text {
     font-family: "Source Sans Pro", sans-serif;
-    color: rgba(255, 255, 255, 0.671); }
+    color: rgba(255, 255, 255, 0.836); }
   .section_banner_button {
     background-color: #e3ac00;
     width: 140px;
     height: 50px;
-    color: white;
+    color: rgba(255, 255, 255, 0.836);
     font-size: 16px;
     font-weight: 700;
     border: 0;
@@ -162,9 +194,10 @@ body {
   .footer_text {
     width: 310px;
     font-family: "Source Sans Pro", sans-serif;
-    color: rgba(255, 255, 255, 0.671); }
+    color: rgba(255, 255, 255, 0.836); }
   .footer_logo p,
   .footer span {
-    color: rgba(255, 255, 255, 0.671); }
+    font-family: "Source Sans Pro", sans-serif;
+    color: rgba(255, 255, 255, 0.836); }
 
 /*# sourceMappingURL=style2.css.map */

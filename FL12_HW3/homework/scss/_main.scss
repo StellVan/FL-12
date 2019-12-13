@@ -1,30 +1,45 @@
+@mixin mixButtons {
+  background-color: $button_color;
+  width: 140px;
+  height: 50px;
+  color: rgba(255, 255, 255, 0.836);
+  font-size: 16px;
+  font-weight: map-get($map: $font-weights, $key: "bold");
+  border: 0;
+  border-radius: 4px;
+}
+
+@mixin greyFont {
+  font-family: "Source Sans Pro", sans-serif;
+  color: rgba(255, 255, 255, 0.836);
+}
+
+@mixin boldFont {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: map-get($map: $font-weights, $key: "bold");
+}
+
+@mixin relativePos {
+  position: relative;
+  z-index: 1;
+}
+
+@mixin emphasized {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  background-color: $emphasized_color;
+}
+
+$font-weights: (
+  "medium": 600,
+  "bold": 700
+);
+
 body {
   margin: 0;
   background-color: $background_color;
-}
-
-.header {
-  background: url($background_url);
-  width: 1920px;
-  background-size: cover;
-  background-position: 50%;
-  border-radius: 0 0 688px 0 / 0 0 340px 0;
-}
-
-.header-wrap {
-  display: flex;
-  margin: 0 auto;
-  flex-flow: column;
-  width: 1536px;
-
-  div:last-of-type {
-    padding-top: 50px;
-    padding-bottom: 171px;
-    display: flex;
-    width: 482px;
-    justify-content: space-between;
-    align-items: center;
-  }
 }
 
 .landing-logo {
@@ -54,65 +69,100 @@ body {
   }
 }
 
-.header_heading {
-  margin: 0;
-  width: 550px;
-  color: $logo_color;
-  font-size: 72px;
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 700;
-  line-height: 81px;
-  padding-top: 33px;
-}
+.header {
+  background: url($background_url);
+  width: 1920px;
+  background-size: cover;
+  background-position: 50%;
+  border-radius: 0 0 688px 0 / 0 0 340px 0;
 
-.header_text {
-  color: $logo_color;
-  font-family: "Source Sans Pro", sans-serif;
-  padding-top: 38px;
-  width: 580px;
-  line-height: 22px;
-}
+  &-wrap {
+    display: flex;
+    margin: 0 auto;
+    flex-flow: column;
+    width: 1536px;
 
-.header_button {
-  background-color: $button_color;
-  width: 140px;
-  height: 50px;
-  color: white;
-  font-size: 16px;
-  font-weight: 700;
-  border: 0;
-  border-radius: 4px;
+    div:last-of-type {
+      padding-top: 50px;
+      padding-bottom: 171px;
+      display: flex;
+      width: 482px;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &_heading {
+    margin: 0;
+    width: 550px;
+    color: $logo_color;
+    font-size: 72px;
+    line-height: 81px;
+    padding-top: 33px;
+    @include relativePos;
+    @include boldFont;
+
+    &::after {
+      top: 140px;
+      width: 302px;
+      height: 51px;
+      @include emphasized;
+    }
+  }
+
+  &_text {
+    color: $logo_color;
+    font-family: "Source Sans Pro", sans-serif;
+    padding-top: 38px;
+    width: 580px;
+    line-height: 22px;
+  }
+
+  &_button {
+    @include mixButtons;
+  }
 }
 
 .login {
-  color: white;
-  font-family: "Source Sans Pro", sans-serif;
   font-size: 19px;
-  font-weight: 600;
+  font-weight: map-get($map: $font-weights, $key: "medium");
+  @include greyFont;
+}
+
+.section_card_right_container {
+  width: 460px;
+  margin: 0 auto;
 }
 
 .section {
   &_text {
     text-align: center;
     font-size: 40px;
-    font-weight: 700;
     color: $logo_color;
-    font-family: "Source Sans Pro", sans-serif;
     margin: 0;
     padding-top: 30px;
+    @include boldFont;
+    @include relativePos;
+
+    &::after {
+      top: 31px;
+      left: 954px;
+      width: 201px;
+      height: 47px;
+      @include emphasized;
+    }
   }
 
   &_card {
+    display: flex;
+    justify-content: space-between;
     background-color: $card_color;
     border-radius: 10px;
     margin: 20px 0px;
-    display: flex;
-    justify-content: space-between;
 
     &_wrap {
+      @extend .section_card_right_container;
       width: 1100px;
-      margin: 0 auto;
-
       padding-top: 13px;
     }
 
@@ -123,32 +173,25 @@ body {
       border-radius: 10px;
     }
 
-    &_right_container {
-      width: 460px;
-      margin: 0 auto;
-    }
-
     &_heading {
       text-align: center;
       font-size: 25px;
-      font-weight: 600;
-      color: white;
-      font-family: "Source Sans Pro", sans-serif;
+      font-weight: map-get($map: $font-weights, $key: "medium");
       padding-top: 43px;
+      @include greyFont;
     }
 
     &_text {
-      color: white;
-      font-family: "Source Sans Pro", sans-serif;
       display: block;
       padding-top: 15px;
       padding-bottom: 40px;
+      @include greyFont;
     }
   }
 
   &_link {
-    color: white;
     padding-left: 180px;
+    @include greyFont;
   }
 
   &_banner {
@@ -168,27 +211,27 @@ body {
     );
 
     &_heading {
-      font-family: "Source Sans Pro", sans-serif;
       color: $logo_color;
       font-size: 30px;
       margin: 0;
-      font-weight: 700;
+      @include boldFont;
+      @include relativePos;
+
+      &::after {
+        top: -8px;
+        left: 119px;
+        width: 68px;
+        height: 47px;
+        @include emphasized;
+      }
     }
 
     &_text {
-      font-family: "Source Sans Pro", sans-serif;
-      color: rgba(255, 255, 255, 0.671);
+      @include greyFont;
     }
 
     &_button {
-      background-color: $button_color;
-      width: 140px;
-      height: 50px;
-      color: white;
-      font-size: 16px;
-      font-weight: 700;
-      border: 0;
-      border-radius: 4px;
+      @include mixButtons;
     }
   }
 }
@@ -210,12 +253,11 @@ body {
 
   &_text {
     width: 310px;
-    font-family: "Source Sans Pro", sans-serif;
-    color: rgba(255, 255, 255, 0.671);
+    @include greyFont;
   }
 
   &_logo p,
   span {
-    color: rgba(255, 255, 255, 0.671);
+    @include greyFont;
   }
 }
