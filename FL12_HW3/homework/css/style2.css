@@ -63,10 +63,11 @@ body {
       background-color: #ff4e33; }
   .header_text {
     color: white;
-    font-family: "Source Sans Pro", sans-serif;
     padding-top: 38px;
     width: 580px;
-    line-height: 22px; }
+    line-height: 22px;
+    font-family: "Fresca", sans-serif;
+    color: rgba(255, 255, 255, 0.836); }
   .header_button {
     background-color: #e3ac00;
     width: 140px;
@@ -134,7 +135,7 @@ body {
     display: block;
     padding-top: 15px;
     padding-bottom: 40px;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: "Fresca", sans-serif;
     color: rgba(255, 255, 255, 0.836); }
 .section_link {
   padding-left: 180px;
@@ -171,7 +172,7 @@ body {
       z-index: -1;
       background-color: #ff4e33; }
   .section_banner_text {
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: "Fresca", sans-serif;
     color: rgba(255, 255, 255, 0.836); }
   .section_banner_button {
     background-color: #e3ac00;
@@ -198,7 +199,7 @@ body {
     width: 1540px; }
   .footer_text {
     width: 310px;
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: "Fresca", sans-serif;
     color: rgba(255, 255, 255, 0.836); }
   .footer_logo p,
   .footer span {

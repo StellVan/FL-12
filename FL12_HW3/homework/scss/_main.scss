@@ -16,6 +16,11 @@
   border-radius: 4px;
 }
 
+@mixin switchFont {
+  font-family: $logo_font;
+  color: rgba(255, 255, 255, 0.836);
+}
+
 @mixin greyFont {
   font-family: "Source Sans Pro", sans-serif;
   color: rgba(255, 255, 255, 0.836);
@@ -114,10 +119,10 @@ body {
 
   &_text {
     color: $logo_color;
-    font-family: "Source Sans Pro", sans-serif;
     padding-top: 38px;
     width: 580px;
     line-height: 22px;
+    @include switchFont;
   }
 
   &_button {
@@ -186,7 +191,7 @@ body {
       display: block;
       padding-top: 15px;
       padding-bottom: 40px;
-      @include greyFont;
+      @include switchFont;
     }
   }
 
@@ -226,7 +231,7 @@ body {
     }
 
     &_text {
-      @include greyFont;
+      @include switchFont;
     }
 
     &_button {
@@ -250,7 +255,7 @@ body {
 
   &_text {
     width: 310px;
-    @include greyFont;
+    @include switchFont;
   }
 
   &_logo p,

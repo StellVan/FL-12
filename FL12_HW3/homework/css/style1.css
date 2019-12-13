@@ -63,10 +63,11 @@ body {
       background-color: #14a0c7; }
   .header_text {
     color: #21232e;
-    font-family: "Source Sans Pro", sans-serif;
     padding-top: 38px;
     width: 580px;
-    line-height: 22px; }
+    line-height: 22px;
+    font-family: "Source Sans Pro", sans-serif;
+    color: rgba(255, 255, 255, 0.836); }
   .header_button {
     background-color: #699900;
     width: 140px;
