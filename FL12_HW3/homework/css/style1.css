@@ -64,7 +64,7 @@ body {
   .header_text {
     color: #21232e;
     padding-top: 38px;
-    width: 580px;
+    white-space: pre-line;
     line-height: 22px;
     font-family: "Source Sans Pro", sans-serif;
     color: rgba(255, 255, 255, 0.836); }
