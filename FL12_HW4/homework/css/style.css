@@ -16,7 +16,7 @@
   justify-content: space-between;
   align-items: center;
   flex-flow: row nowrap;
-  width: 1119px;
+  max-width: 1119px;
   margin: 0 auto;
 }
 
@@ -94,7 +94,7 @@
 
 .main_content_article {
   text-align: left;
-  width: 944px;
+  max-width: 944px;
   margin: 0 auto;
   padding-bottom: 150px;
 }
