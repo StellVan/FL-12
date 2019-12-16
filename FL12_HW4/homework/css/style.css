@@ -11,7 +11,7 @@
 }
 
 .header_position {
-  min-width: 1600px;
+  min-width: 100vw;
 }
 
 .header_wrapper {
