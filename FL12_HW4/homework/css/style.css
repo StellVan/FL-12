@@ -2,3 +2,45 @@
   margin: 0;
   padding: 0;
 }
+
+.header {
+  padding: 31px 0;
+  position: fixed;
+  background-color: #ffffff;
+}
+
+.header_position {
+  width: 100vw;
+}
+
+.header_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row nowrap;
+  width: 1138px;
+  margin: 0 auto;
+}
+
+.header_wrapper_logo {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 3.5px;
+}
+
+.header_wrapper_navigation_list {
+  display: flex;
+  justify-content: space-between;
+  width: 360px;
+  list-style-type: none;
+}
+
+.header_wrapper_navigation_list_item a {
+  color: #777;
+  text-decoration: none;
+}
+
+.header_wrapper_navigation_list_item a:hover {
+  color: #bfba55;
+}
