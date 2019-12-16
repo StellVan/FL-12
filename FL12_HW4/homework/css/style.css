@@ -44,6 +44,7 @@
 }
 
 .main_banner {
+  background-color: black;
   background-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.747) 0%,
@@ -53,7 +54,7 @@
   background-size: 125%;
   background-position-y: 85px;
   background-position-x: center;
-
+  background-repeat: no-repeat;
   width: 100vw;
   height: 888px;
   margin: 0 auto;
