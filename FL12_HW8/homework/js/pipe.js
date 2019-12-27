@@ -7,14 +7,13 @@ function pipe() {
       num = addOne(num);
     }
   }
-  return num;
+  return console.log(num);
 }
 
 function addOne(x) {
   return x + 1;
 }
 
-console.log(
-  pipe(1, addOne), //=> 2
-  pipe(1, addOne, addOne) //=> 3
-);
+pipe(1, addOne);
+pipe(1, addOne, addOne);
+pipe(3, addOne, 'dddd', addOne);

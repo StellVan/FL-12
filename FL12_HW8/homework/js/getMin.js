@@ -10,4 +10,4 @@ function getMin() {
   return number;
 }
 
-console.log(getMin(4, 1, 5, 9, -5));
+getMin(4, 1, 5, 9, -5);

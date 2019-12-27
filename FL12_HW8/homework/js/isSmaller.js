@@ -4,4 +4,4 @@ function isSmaller(a, b) {
   return a < b;
 }
 
-console.log(isSmaller(4, 1));
+isSmaller(4, 1);
