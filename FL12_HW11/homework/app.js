@@ -38,59 +38,88 @@ const structure = [
 const rootNode = document.getElementById('root');
 
 function htmlTreeBuilder(array, parentNode) {
-  let div, newNode, element, text, wrapper;
-  let padding;
-  let paddingCounter;
-  let folderToggle = false;
+  let folder,
+    mainWrapper,
+    element,
+    fileTextWrapper,
+    folderTextWrapper,
+    materialIcon,
+    text,
+    newNode,
+    padding,
+    paddingCounter;
+  let paddingIterator = 10;
+
+  let textEmpty = document.createElement('p');
+  textEmpty.classList.add('textEmpty');
+  textEmpty.innerText = 'folder is empty';
 
   for (let i = 0; i < array.length; i++) {
-    text = document.createElement('div');
+    folder = document.createElement('div');
+    mainWrapper = document.createElement('div');
     element = document.createElement('div');
-    div = document.createElement('div');
-    wrapper = document.createElement('div');
+    fileTextWrapper = document.createElement('div');
+    folderTextWrapper = document.createElement('div');
     materialIcon = document.createElement('i');
+    text = document.createElement('p');
+
+    folder.classList.add('folder');
+    element.classList.add('element');
+    materialIcon.classList.add('material-icons');
+    folderTextWrapper.classList.add('text', 'textWrapper');
+    fileTextWrapper.classList.add('text');
+    mainWrapper.classList.add('mainWrapper', 'toggle');
+    text.classList.add('textFull');
+
+    paddingCounter = 0;
+    paddingCounter = paddingCounter + paddingIterator;
+    padding = `${paddingCounter}px`;
 
     text.innerText = array[i].title;
 
-    element.classList.add('element', 'toggle');
-    div.classList.add('div');
-    materialIcon.classList.add('material-icons');
-    wrapper.classList.add('wrapper');
-
-    paddingCounter = 0;
-    paddingCounter = paddingCounter + 10;
-    padding = `${paddingCounter}px`;
-
-    if (array[i].folder === true) {
-      div.classList.add('folder');
-      materialIcon.innerText = 'folder';
-    } else {
-      div.classList.add('item');
-      materialIcon.innerText = 'insert_drive_file';
+    if (!array[i].children && array[i].folder === true) {
+      console.log('object');
+      mainWrapper.append(textEmpty);
     }
 
-    div.append(materialIcon, text);
-    element.append(div);
-    wrapper.append(element);
-    newNode = parentNode.appendChild(wrapper);
-    newNode.style.paddingLeft = padding;
-    if (
-      array[i].children !== false &&
-      array[i].children !== null &&
-      array[i].children
-    ) {
-      htmlTreeBuilder(array[i].children, newNode);
+    if (array[i].folder === true) {
+      materialIcon.innerText = 'folder';
+      materialIcon.classList.add('folderMat');
+      folderTextWrapper.append(materialIcon, text);
+      folder.append(folderTextWrapper, mainWrapper);
+      newNode = folder;
+    } else {
+      materialIcon.innerText = 'insert_drive_file';
+      materialIcon.classList.add('folderElem');
+      fileTextWrapper.append(materialIcon, text);
+      element.append(fileTextWrapper);
+      newNode = element;
+    }
+
+    parentNode.append(newNode);
+    parentNode.style.paddingLeft = padding;
+    if (array[i].children) {
+      htmlTreeBuilder(array[i].children, mainWrapper);
     }
   }
 }
 
 htmlTreeBuilder(structure, rootNode);
 
-let aaa = document.querySelectorAll('.wrapper');
-for (let i = 0; i < aaa.length; i++) {
-  aaa[i].addEventListener('click', event => {
+let textWrapperArray = document.querySelectorAll('.textWrapper');
+let mainWrapperArray = document.querySelectorAll('.mainWrapper');
+let folderMatArray = document.querySelectorAll('.folderMat');
+
+let folderToggle = false;
+for (let i = 0; i < textWrapperArray.length; i++) {
+  textWrapperArray[i].addEventListener('click', event => {
     event.stopPropagation();
-    aaa[i].classList.toggle('wrapper');
-    console.log('object');
+    mainWrapperArray[i].classList.toggle('toggle');
+
+    if (mainWrapperArray[i].classList.contains('toggle')) {
+      folderMatArray[i].innerText = 'folder';
+    } else if (!mainWrapperArray[i].classList.contains('toggle')) {
+      folderMatArray[i].innerText = 'folder_open';
+    }
   });
 }

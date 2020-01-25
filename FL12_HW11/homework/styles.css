@@ -7,19 +7,28 @@
   font-size: 20px;
 }
 
-.div {
+.text {
   display: flex;
 }
 
-.div:hover {
+.text:hover {
   background-color: rgba(0, 0, 0, 0.26);
   cursor: pointer;
 }
 
-.wrapper > .wrapper {
+.toggle {
   display: none;
 }
 
-i {
+.folderMat {
   color: rgba(255, 153, 0, 0.815);
+}
+
+.folderElem {
+  color: grey;
+}
+
+.textEmpty {
+  padding-left: 10px;
+  font-style: italic;
 }
