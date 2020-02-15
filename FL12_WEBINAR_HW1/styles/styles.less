@@ -1,0 +1,135 @@
+@import './variables.less';
+
+.headingSetup() {
+  color: @blue;
+  font-family: @mainFont;
+}
+
+body {
+  margin: 0 auto;
+}
+
+.header {
+  width: 100%;
+  background-color: #f8f8f8;
+  border-bottom: 2px solid rgb(224, 224, 224);
+  margin-bottom: 34px;
+  &__wrapper {
+    height: 61px;
+    width: @contentWidth;
+  }
+  &__logo {
+    width: 32px;
+  }
+  &__button {
+    &--burger {
+      &--element {
+        width: 29px;
+        height: 2px;
+        background-color: black;
+        margin: 6px 0;
+      }
+    }
+  }
+}
+
+.main {
+  margin-bottom: 19px;
+  &__wrapper {
+    width: @contentWidth;
+  }
+  &__header {
+    .headingSetup;
+    font-size: 46px;
+    border-bottom: 2px solid @blue;
+    padding-bottom: 5px;
+    margin-bottom: 25px;
+  }
+  &__image {
+    width: 100%;
+    margin-bottom: 22px;
+  }
+  &__section {
+    &--description {
+      margin-bottom: 58px;
+      &__header {
+        .headingSetup;
+        font-size: 31px;
+        margin-bottom: 12px;
+      }
+      &__text {
+        font-family: @mainFont;
+        font-size: 17.9px;
+        letter-spacing: -0.1px;
+        line-height: 25px;
+        margin-bottom: 12px;
+      }
+      &__list {
+        font-family: @mainFont;
+        margin-left: 7px;
+      }
+      &__listElement {
+        font-family: @mainFont;
+        font-size: 17px;
+      }
+    }
+    &--related {
+      &__header {
+        .headingSetup;
+        font-size: 31px;
+        border-bottom: 2px solid @blue;
+        padding-bottom: 5px;
+        margin-bottom: 28px;
+      }
+      &__wrapper {
+        &__image {
+          padding-top: 2px;
+          width: 98.9%;
+          margin-bottom: 11px;
+        }
+        &__title {
+          font-family: @mainFont;
+          font-weight: 700;
+          font-size: 17px;
+          color: white;
+        }
+        &__element {
+          &--red,
+          &--blue,
+          &--yellow,
+          &--green {
+            text-align: center;
+            margin-bottom: 25px;
+            width: 47.4%;
+          }
+          &--red {
+            background-color: @red;
+          }
+          &--blue {
+            background-color: @blue;
+          }
+          &--yellow {
+            background-color: @yellow;
+          }
+          &--green {
+            background-color: @green;
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  &__wrapper {
+    background-color: @grey;
+    width: @contentWidth;
+    &__text {
+      padding: 13px 0 13px 24px;
+      font-family: @mainFont;
+      font-weight: 500;
+      font-size: 18px;
+      color: white;
+    }
+  }
+}

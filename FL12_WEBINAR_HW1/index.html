@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/bootstrap.min.css" />
+    <link rel="stylesheet/less" type="text/css" href="styles/styles.less" />
+    <script
+      src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <div
+        class="header__wrapper row justify-content-between align-items-center mx-auto"
+      >
+        <img class="header__logo" src="img/logo.png" alt="" />
+        <nav class="header__navigation"></nav>
+        <button class="header__button--burger btn btn-outline-secondary">
+          <div class="header__button--burger--element"></div>
+          <div class="header__button--burger--element"></div>
+          <div class="header__button--burger--element"></div>
+        </button>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="main__wrapper mx-auto">
+        <h2 class="main__header">
+          Yoga Pilates
+        </h2>
+        <img class="main__image" src="img/yoga.jpg" alt="" />
+
+        <section class="main__section--description">
+          <h3 class="main__section--description__header">Class description</h3>
+          <p class="main__section--description__text">
+            This workout uses a series of exercise routines designed to increase
+            your core strength & improve your posture, energy, & flexibility.
+            Pilates work is powered by breath, flow, & centering. By focusing on
+            the mind-body connection & using more efficient form, this workout
+            helps develop a stronger, leaner, healthier body. Appropriate for
+            all fitness levels.
+          </p>
+          <ul class="main__section--description__list">
+            <li class="main__section--description__listElement">
+              One Personal Trainer
+            </li>
+            <li class="main__section--description__listElement">
+              Big gym space for training
+            </li>
+            <li class="main__section--description__listElement">
+              Free tools & props
+            </li>
+            <li class="main__section--description__listElement">Free locker</li>
+            <li class="main__section--description__listElement">
+              Free before / after shower
+            </li>
+          </ul>
+        </section>
+
+        <section class="main__section--related">
+          <h3 class="main__section--related__header">Related classes</h3>
+          <div
+            class="main__section--related__wrapper row justify-content-between mx-auto"
+          >
+            <div class="main__section--related__wrapper__element--red">
+              <img
+                src="./img/cardio-kickbox.jpg"
+                class="main__section--related__wrapper__image"
+                alt=""
+              />
+              <p class="main__section--related__wrapper__title">
+                Cardio kickboxing
+              </p>
+            </div>
+            <div class="main__section--related__wrapper__element--blue">
+              <img
+                src="./img/fitness.jpg"
+                class="main__section--related__wrapper__image"
+                alt=""
+              />
+              <p class="main__section--related__wrapper__title">
+                Fitness xpress
+              </p>
+            </div>
+            <div class="main__section--related__wrapper__element--yellow">
+              <img
+                src="./img/zumba.jpg"
+                class="main__section--related__wrapper__image"
+                alt=""
+              />
+              <p class="main__section--related__wrapper__title">Zumba</p>
+            </div>
+            <div class="main__section--related__wrapper__element--green">
+              <img
+                src="./img/bootcamp.jpg"
+                class="main__section--related__wrapper__image"
+                alt=""
+              />
+              <p class="main__section--related__wrapper__title">Bootcamp</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__wrapper mx-auto">
+        <p class="footer__wrapper__text">
+          &copy; Epam Front-end lab, 2018
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
