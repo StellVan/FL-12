@@ -21,16 +21,35 @@
 
   <body>
     <header class="header">
-      <div
-        class="header__wrapper row justify-content-between align-items-center mx-auto"
-      >
+      <div class="header__wrapper row align-items-center mx-auto">
         <img class="header__logo" src="img/logo.png" alt="" />
-        <nav class="header__navigation"></nav>
-        <button class="header__button--burger btn btn-outline-secondary">
-          <div class="header__button--burger--element"></div>
-          <div class="header__button--burger--element"></div>
-          <div class="header__button--burger--element"></div>
-        </button>
+        <nav
+          class="navbar navbar-expand-md navbar-light bg-light header__navigation h-100"
+        >
+          <div
+            class="collapse navbar-collapse row justify-content-center header__navigation__content"
+            id="navbarTogglerDemo01"
+          >
+            <button class="header__navigation__content__button">Classes</button>
+
+            <button class="header__navigation__content__button">
+              About us
+            </button>
+
+            <button class="header__navigation__content__button">
+              Contacts
+            </button>
+          </div>
+
+          <button
+            class="navbar-toggler header__navigation__button--burger"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarTogglerDemo01"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </nav>
       </div>
     </header>
 
@@ -73,7 +92,7 @@
           <div
             class="main__section--related__wrapper row justify-content-between mx-auto"
           >
-            <div class="main__section--related__wrapper__element--red">
+            <div class="main__section--related__wrapper__element--red mb-4">
               <img
                 src="./img/cardio-kickbox.jpg"
                 class="main__section--related__wrapper__image"
@@ -83,7 +102,7 @@
                 Cardio kickboxing
               </p>
             </div>
-            <div class="main__section--related__wrapper__element--blue">
+            <div class="main__section--related__wrapper__element--blue mb-4">
               <img
                 src="./img/fitness.jpg"
                 class="main__section--related__wrapper__image"
@@ -93,7 +112,7 @@
                 Fitness xpress
               </p>
             </div>
-            <div class="main__section--related__wrapper__element--yellow">
+            <div class="main__section--related__wrapper__element--yellow mb-4">
               <img
                 src="./img/zumba.jpg"
                 class="main__section--related__wrapper__image"
@@ -101,7 +120,7 @@
               />
               <p class="main__section--related__wrapper__title">Zumba</p>
             </div>
-            <div class="main__section--related__wrapper__element--green">
+            <div class="main__section--related__wrapper__element--green mb-4">
               <img
                 src="./img/bootcamp.jpg"
                 class="main__section--related__wrapper__image"

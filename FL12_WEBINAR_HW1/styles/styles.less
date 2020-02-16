@@ -16,18 +16,42 @@ body {
   margin-bottom: 34px;
   &__wrapper {
     height: 61px;
-    width: @contentWidth;
+    width: @contentWidthMobile;
+    justify-content: space-between;
   }
   &__logo {
     width: 32px;
   }
-  &__button {
-    &--burger {
-      &--element {
-        width: 29px;
-        height: 2px;
-        background-color: black;
-        margin: 6px 0;
+  &__navigation {
+    padding: 0;
+    &__button {
+      &--burger {
+        div {
+          height: 2px;
+          width: 27px;
+          background-color: black;
+          margin: 20% 0;
+        }
+      }
+    }
+    &__content {
+      height: 100%;
+      width: 100vw;
+      right: 0;
+      top: 59px;
+      position: absolute;
+      border-bottom: 2px solid rgb(224, 224, 224);
+      background-color: #f8f8f8;
+      list-style-type: none;
+
+      &__button {
+        height: 100%;
+        background-color: transparent;
+        border: none;
+        &:hover {
+          background-color: @blue;
+          color: white;
+        }
       }
     }
   }
@@ -36,7 +60,7 @@ body {
 .main {
   margin-bottom: 19px;
   &__wrapper {
-    width: @contentWidth;
+    width: @contentWidthMobile;
   }
   &__header {
     .headingSetup;
@@ -123,13 +147,78 @@ body {
 .footer {
   &__wrapper {
     background-color: @grey;
-    width: @contentWidth;
+    width: @contentWidthMobile;
     &__text {
       padding: 13px 0 13px 24px;
       font-family: @mainFont;
       font-weight: 500;
       font-size: 18px;
       color: white;
+    }
+  }
+}
+
+@media (min-width: 767.98px) {
+  .header {
+    margin-bottom: 28px;
+    &__wrapper {
+      justify-content: start;
+      width: @contentWidthTablet;
+    }
+    &__navigation {
+      display: flex;
+      &__button--burger {
+        display: none;
+      }
+      &__content {
+        display: flex;
+        border: none;
+        position: static;
+        width: 100%;
+        margin: 0;
+        margin-left: 26px;
+        &__button {
+          padding: 0 20px;
+        }
+      }
+    }
+  }
+
+  .main {
+    &__wrapper {
+      width: @contentWidthTablet;
+    }
+    &__image {
+      margin-bottom: 14px;
+    }
+    &__section {
+      &--description {
+        &__text {
+          font-size: 17.4px;
+          margin-bottom: 2px;
+        }
+      }
+
+      &--related {
+        &__header {
+          margin-bottom: 22px;
+        }
+        &__wrapper {
+          &__element {
+            &--red,
+            &--blue,
+            &--yellow,
+            &--green {
+              width: 22.4%;
+            }
+          }
+        }
+      }
+    }
+  }
+  .footer {
+    &__wrapper {
+      width: @contentWidthTablet;
     }
   }
 }
