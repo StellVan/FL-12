@@ -222,3 +222,90 @@ body {
     }
   }
 }
+
+@media (min-width: 991.98px) {
+  .header {
+    margin-bottom: 28px;
+    &__wrapper {
+      justify-content: start;
+      width: @contentWidthDT;
+      height: 51px;
+    }
+    &__navigation {
+      display: flex;
+      &__button--burger {
+        display: none;
+      }
+      &__content {
+        display: flex;
+        border: none;
+        position: static;
+        width: 100%;
+        margin: 0;
+        margin-left: 8px;
+        &__button {
+          padding: 0 15px;
+        }
+      }
+    }
+  }
+
+  .main {
+    &__wrapper {
+      width: @contentWidthDT;
+      &--DT {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    &__header {
+      font-size: 40px;
+      margin-bottom: 19px;
+    }
+    &__image {
+      height: 100%;
+      margin-bottom: 14px;
+      width: 65.7%;
+    }
+    &__section {
+      &--description {
+        margin-bottom: 58px;
+        width: 31.5%;
+        padding-top: 20px;
+        &__header {
+          font-size: 27px;
+          margin-bottom: 7px;
+        }
+        &__text {
+          font-size: 15.2px;
+          line-height: 21px;
+          margin-bottom: 9px;
+        }
+        &__listElement {
+          line-height: 22px;
+        }
+      }
+
+      &--related {
+        &__header {
+          margin-bottom: 22px;
+        }
+        &__wrapper {
+          &__element {
+            &--red,
+            &--blue,
+            &--yellow,
+            &--green {
+              width: 22.4%;
+            }
+          }
+        }
+      }
+    }
+  }
+  .footer {
+    &__wrapper {
+      width: @contentWidthDT;
+    }
+  }
+}
