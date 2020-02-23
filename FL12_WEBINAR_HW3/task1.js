@@ -5,7 +5,6 @@ let faceCards = { 1: 'Ace', 11: 'Jack', 12: 'Queen', 13: 'King' };
 const _suit = Symbol('suit');
 const _rank = Symbol('rank');
 const _isFaceCard = Symbol('isFaceCard');
-const _wins = Symbol('wins');
 
 class Card {
   constructor(rank, suit) {
@@ -91,8 +90,15 @@ class Deck {
 class Player {
   constructor(name) {
     this.name = name;
-    this[_wins];
+    let _wins = 0;
     this.deck = new Deck();
+    this.getWins = function() {
+      return _wins;
+    };
+
+    this.addWins = function() {
+      _wins++;
+    };
   }
 
   refreshDeck() {
@@ -124,8 +130,10 @@ class Player {
       }
     }
     if (playerOneScore > playerTwoScore) {
+      playerOne.addWins();
       name = `${playerOne.name} Wins`;
     } else if (playerOneScore < playerTwoScore) {
+      playerTwo.addWins();
       name = `${playerTwo.name} Wins`;
     } else if (playerOneScore === playerTwoScore) {
       name = 'Draw';
@@ -135,11 +143,3 @@ class Player {
     return `${name}! Score is ${playerOneScore} : ${playerTwoScore}`;
   }
 }
-
-let Varvara = new Player('Varvara');
-let StellVan = new Player('StellVan');
-
-console.log(Player.Play(Varvara, StellVan));
-console.log(Player.Play(Varvara, StellVan));
-console.log(StellVan.deck.cards[0].toString());
-console.log(StellVan.deck.cards[0].getFaceCard());
