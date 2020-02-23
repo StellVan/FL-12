@@ -1,24 +1,5 @@
 'use strict';
 
-const managerData = {
-  id: 1,
-  firstName: 'Vince',
-  lastName: 'Gilligan',
-  birthday: '1967-03-25',
-  salary: 10500,
-  department: 'Movie'
-};
-
-const managerEmployeeData = {
-  id: 2,
-  firstName: 'Bryan',
-  lastName: 'Cranston',
-  birthday: '1956-02-7',
-  salary: 7500,
-  position: 'Actor',
-  department: 'Movie'
-};
-
 class Employee {
   static _EMPLOYEES = new Set();
   constructor({
