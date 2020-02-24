@@ -1,11 +1,11 @@
 'use strict';
 
-let suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
-let faceCards = { 1: 'Ace', 11: 'Jack', 12: 'Queen', 13: 'King' };
+var suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
+var faceCards = { 1: 'Ace', 11: 'Jack', 12: 'Queen', 13: 'King' };
 
 function Card(rank, suit) {
-  let _rank = rank;
-  let _suit = suit;
+  var _rank = rank;
+  var _suit = suit;
 
   this.getRank = function() {
     return _rank;
@@ -18,7 +18,7 @@ function Card(rank, suit) {
   };
 
   this.toString = function() {
-    let result, valueString;
+    var result, valueString;
     if (faceCards[this.getRank()]) {
       valueString = faceCards[this.getRank()];
     } else {
@@ -35,7 +35,7 @@ function Card(rank, suit) {
       return false;
     }
   };
-  let _isFaceCard = this.setFaceCard();
+  var _isFaceCard = this.setFaceCard();
 }
 
 Card.Compare = function(cardOne, cardTwo) {
@@ -56,9 +56,9 @@ Card.Compare = function(cardOne, cardTwo) {
 
 function Deck() {
   this.createDeck = function() {
-    let arr = [];
-    for (let i = 0; i < 4; i++) {
-      for (let j = 1; j <= 13; j++) {
+    var arr = [];
+    for (var i = 0; i < 4; i++) {
+      for (var j = 1; j <= 13; j++) {
         arr.push(new Card(j, suits[i]));
       }
     }
@@ -70,8 +70,8 @@ function Deck() {
     return this.cards.length;
   };
   this.shuffle = function() {
-    let j, temp;
-    for (let i = this.cards.length - 1; i > 0; i--) {
+    var j, temp;
+    for (var i = this.cards.length - 1; i > 0; i--) {
       j = Math.floor(Math.random() * (i + 1));
       temp = this.cards[j];
       this.cards[j] = this.cards[i];
@@ -86,7 +86,7 @@ function Deck() {
 
 function Player(name) {
   this.name = name;
-  let _wins = 0;
+  var _wins = 0;
   this.setWins = function() {
     _wins++;
   };
@@ -101,13 +101,13 @@ function Player(name) {
 }
 
 Player.Play = function(playerOne, playerTwo) {
-  let name;
-  let playerOneScore = 0;
-  let playerTwoScore = 0;
+  var name;
+  var playerOneScore = 0;
+  var playerTwoScore = 0;
   playerOne.deck.shuffle();
   playerTwo.deck.shuffle();
-  for (let i = 51; i >= 0; i--) {
-    let tempResult = Card.Compare(
+  for (var i = 51; i >= 0; i--) {
+    var tempResult = Card.Compare(
       playerOne.deck.draw(1),
       playerTwo.deck.draw(1)
     );
