@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Mark",
+      "posts": [
+        {
+          "post": "post1"
+        },
+        {
+          "post": "post2"
+        },
+        {
+          "post": "post3"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Var",
+      "posts": [
+        {
+          "post": "post5"
+        },
+        {
+          "post": "post6"
+        },
+        {
+          "post": "post7"
+        }
+      ]
+    }
+  ]
+}
