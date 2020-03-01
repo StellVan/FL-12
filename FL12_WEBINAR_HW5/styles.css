@@ -1,0 +1,106 @@
+body {
+  position: relative;
+}
+
+.spinner {
+  background-color: rgba(204, 204, 204, 0.479);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+}
+
+.spinnerItem {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+.userWrapper,
+#userEdit,
+.postWrapper {
+  background-color: rgb(204, 204, 204);
+  border: black 1px solid;
+  margin-bottom: 10px;
+}
+
+#userPosts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.postWrapper {
+  width: 600px;
+  height: 500px;
+  padding: 5px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.postTitle {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.postTitle::first-letter {
+  text-transform: uppercase;
+}
+
+.delete {
+  display: none;
+}
+
+.nickname {
+  color: blue;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+
+.nickname:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.subInput > p {
+  font-weight: 600;
+  margin-left: 30px;
+}
+
+#userEdit > div,
+#userEdit > p {
+  font-weight: 600;
+}
+
+#userEdit input {
+  display: inline-block;
+  min-width: 300px;
+}
+
+.btn {
+  margin: 10px;
+}
+
+.commentsWrapper {
+  padding: 10px;
+  background-color: rgba(165, 164, 164, 0.438);
+  overflow-y: scroll;
+  height: 71%;
+}
+
+.commentWrapper {
+  border: 1px solid #000;
+  background-color: rgba(0, 0, 0, 0.089);
+  margin-bottom: 5px;
+}
+
+.commentName,
+.commentEmail,
+.commentText {
+  padding-left: 5px;
+  margin: 0;
+}
+
+.commentEmail {
+  color: rgba(28, 0, 131, 0.856);
+  font-size: 15px;
+}
