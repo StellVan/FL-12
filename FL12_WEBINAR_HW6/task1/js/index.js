@@ -82,4 +82,5 @@ $('.mbox')
 // for first div wraper for img set float left and border red
 $('img')
   .parent('div')
-  .css({ float: 'left', border: 'red' });
+  .first()
+  .css({ float: 'left', border: 'red solid 3px' });
