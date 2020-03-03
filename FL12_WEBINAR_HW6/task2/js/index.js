@@ -5,12 +5,12 @@ const $search = $('#search-input');
 
 const todos = [
   {
-    text: 'Buy milk',
-    done: false
-  },
-  {
     text: 'Play with dog',
     done: true
+  },
+  {
+    text: 'Buy milk',
+    done: false
   }
 ];
 
@@ -110,6 +110,8 @@ function addButtonsEvent() {
     refreshTodos();
   });
 }
+
+// SEARCH INPUT ---------------------
 
 $search.on('input', function() {
   let value = $search.val();
