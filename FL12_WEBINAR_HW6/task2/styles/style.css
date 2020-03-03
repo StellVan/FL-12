@@ -35,3 +35,16 @@
   top: 0;
   height: 21px;
 }
+
+.formsWrapper {
+  display: flex;
+  justify-content: left;
+}
+
+.formsWrapper form {
+  padding-right: 20px;
+}
+
+.hidden {
+  display: none;
+}

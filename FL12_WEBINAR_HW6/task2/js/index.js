@@ -1,6 +1,7 @@
 const $list = $('.list');
 const $input = $('#add-input');
 const $add = $('#add-submit');
+const $search = $('#search-input');
 
 const todos = [
   {
@@ -109,3 +110,10 @@ function addButtonsEvent() {
     refreshTodos();
   });
 }
+
+$search.on('input', function() {
+  let value = $search.val();
+
+  $(`.item:not(:contains(${value}))`).addClass('hidden');
+  $(`.item:contains(${value})`).removeClass('hidden');
+});
