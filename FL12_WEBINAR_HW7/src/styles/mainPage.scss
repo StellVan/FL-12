@@ -1,0 +1,60 @@
+@import './variables.scss';
+
+.mainWrapper {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rockTitle,
+.paperTitle,
+.scissorsTitle {
+  font-family: $mainFont;
+  text-transform: uppercase;
+  font-size: 50px;
+}
+
+.rockTitle {
+  color: $red;
+}
+
+.paperTitle {
+  color: $green;
+}
+
+.scissorsTitle {
+  color: $blue;
+}
+
+.score {
+  font-family: $mainFont;
+  font-size: 70px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.roundsWrapper {
+  border-radius: 5px;
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
+  width: 500px;
+  height: 200px;
+  margin-bottom: 30px;
+  background-color: rgb(158, 158, 158);
+}
+
+.finalText {
+  padding-top: 40px;
+  font-family: $mainFont;
+  font-size: 35px;
+  margin: 0;
+}
+
+.rules {
+  margin: 0 auto;
+  background-image: url('../img/image.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 500px;
+}
