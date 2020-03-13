@@ -1,5 +1,6 @@
 import React from 'react';
 import './List.css';
+import { Link } from 'react-router-dom';
 import ListElement from '../ListElement/ListElement';
 
 class List extends React.Component {
@@ -25,7 +26,8 @@ class List extends React.Component {
   }
 
   deleteElement(e) {
-    let id = +e.target.parentNode.parentNode.parentNode.id;
+    let id = +e.target.id;
+    console.log(id);
     this.setState(prev => ({
       array: prev.array.filter(el => el.id !== id)
     }));
@@ -44,7 +46,9 @@ class List extends React.Component {
             placeholder="&#128269; Search"
             onChange={e => this.handleChange(e)}
           ></input>
-          <button className="search-addButton">Add course</button>
+          <Link className="search-addButton" to="/edit">
+            Add course
+          </Link>
         </div>
         <ul className="list-wrapper">
           {array.filter(this.filterHandle(input)).map(el => (

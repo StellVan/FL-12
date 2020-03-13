@@ -38,6 +38,7 @@ class ListElement extends React.Component {
           </button>
           <div className={active ? 'dropdown' : 'dropdown hidden'}>
             <button
+              id={id}
               onClick={() => {
                 console.log();
               }}
@@ -46,6 +47,7 @@ class ListElement extends React.Component {
               Edit
             </button>
             <button
+              id={id}
               onClick={e => {
                 deleteElement(e);
               }}
