@@ -2,7 +2,7 @@ import React from 'react';
 import './MainPage.css';
 import List from '../List/List';
 import Submit from '../Edit/Submit';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 let mockProps = [
   {
@@ -43,7 +43,41 @@ let mockProps = [
 ];
 
 class MainPage extends React.Component {
+  constructor() {
+    super();
+
+    this.addNewElement = this.addNewElement.bind(this);
+    this.state = {
+      array: mockProps
+    };
+  }
+
+  addNewElement(object) {
+    let { date, name, subjects, time } = object;
+
+    let elementToPush = {
+      date: date,
+      name: name,
+      subjects: subjects,
+      time: time,
+      id: this.RNG()
+    };
+    this.setState(prev => ({ array: [...prev.array, elementToPush] }));
+    console.log(this.state.array);
+  }
+
+  RNG() {
+    return (
+      '_' +
+      Math.random()
+        .toString(36)
+        .substr(2, 9)
+    );
+  }
+
   render() {
+    let { array } = this.state;
+
     return (
       <div className="MainPage">
         <header className="header">
@@ -57,10 +91,10 @@ class MainPage extends React.Component {
             <Router>
               <Switch>
                 <Route exact path="/">
-                  <List array={[...mockProps]} />
+                  <List array={[...array]} />
                 </Route>
                 <Route path="/edit">
-                  <Submit />
+                  <Submit addNewElement={this.addNewElement} />
                 </Route>
               </Switch>
             </Router>

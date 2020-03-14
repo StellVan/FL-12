@@ -1,5 +1,6 @@
 import React from 'react';
 import './ListElement.css';
+import { Link } from 'react-router-dom';
 
 class ListElement extends React.Component {
   constructor(props) {
@@ -37,15 +38,17 @@ class ListElement extends React.Component {
             ...
           </button>
           <div className={active ? 'dropdown' : 'dropdown hidden'}>
-            <button
-              id={id}
-              onClick={() => {
-                console.log();
-              }}
-              className="editBtn"
-            >
-              Edit
-            </button>
+            <Link to="/edit">
+              <button
+                id={id}
+                onClick={() => {
+                  console.log();
+                }}
+                className="editBtn"
+              >
+                Edit
+              </button>
+            </Link>
             <button
               id={id}
               onClick={e => {
