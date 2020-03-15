@@ -1,32 +1,71 @@
 import React from 'react';
 import './Submit.css';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { addNew } from '../../Redux/actions/actions';
 
 class Submit extends React.Component {
   constructor(props) {
     super(props);
 
     this.getInputValues = this.getInputValues.bind(this);
+    this.validateValues = this.validateValues.bind(this);
+
     this.state = {
-      title: '',
-      description: '',
-      duration: '',
-      date: ''
+      object: {
+        title: '',
+        description: '',
+        duration: '',
+        date: '',
+        authors: ''
+      },
+      validated: false
     };
   }
 
   getInputValues(ev) {
     let value = ev.target.value;
-    console.log(value);
-    this.setState({
-      ...this.state,
-      [ev.target.name]: value
-    });
+    let name = [ev.target.name];
+    this.setState(
+      prev => ({
+        object: {
+          ...prev.object,
+          [name]: value
+        }
+      }),
+      () => {
+        this.validateValues();
+      }
+    );
+  }
+
+  validateValues() {
+    let { title, description, duration, date, authors } = this.state.object;
+
+    if (
+      title.length > 0 &&
+      description.length > 0 &&
+      duration.length > 0 &&
+      date.length > 0 &&
+      authors.length > 0
+    ) {
+      this.setState({
+        validated: true
+      });
+    } else {
+      this.setState({
+        validated: false
+      });
+    }
   }
 
   render() {
+    let { object, validated } = this.state;
+    let { header } = this.props;
+
     return (
       <div className="Submit">
-        <p className="submit-header">New course</p>
+        <p className="submit-header">{header}</p>
         <div className="submit-wrapper">
           <div className="inputsWrapper">
             <div className="titleInputWrapper">
@@ -68,7 +107,12 @@ class Submit extends React.Component {
               <p className="input-text">
                 Authors<sup>*</sup>
               </p>
-              <input type="text" className="authorsInput"></input>
+              <input
+                type="text"
+                onChange={this.getInputValues}
+                name="authors"
+                className="authorsInput"
+              ></input>
             </div>
 
             <div className="dateInputWrapper">
@@ -86,16 +130,25 @@ class Submit extends React.Component {
           </div>
 
           <div className="submit-buttonsWrapper">
-            <button
-              type="submit"
-              className="submit-save"
-              onClick={() => {
-                this.props.addNewElement(this.state);
-              }}
-            >
-              Save
-            </button>
-            <button className="submit-cancel">Cancel</button>
+            {validated ? (
+              <Link to="/" className="submit-saveWrapper">
+                <button
+                  type="submit"
+                  className="submit-save"
+                  onClick={() => {
+                    this.props.addNew(object);
+                  }}
+                >
+                  Save
+                </button>
+              </Link>
+            ) : (
+              <div className="submit-save-disabled">Save</div>
+            )}
+
+            <Link to="/" className="submit-cancel">
+              Cancel
+            </Link>
           </div>
         </div>
       </div>
@@ -103,4 +156,13 @@ class Submit extends React.Component {
   }
 }
 
-export default Submit;
+function mapStateToProps(store) {
+  return {
+    list: store
+  };
+}
+const mapDispatchToProps = dispatch => ({
+  addNew: newElement => dispatch(addNew(newElement))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Submit);

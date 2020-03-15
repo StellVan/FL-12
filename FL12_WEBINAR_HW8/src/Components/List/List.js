@@ -2,15 +2,14 @@ import React from 'react';
 import './List.css';
 import { Link } from 'react-router-dom';
 import ListElement from '../ListElement/ListElement';
+import { connect } from 'react-redux';
 
 class List extends React.Component {
   constructor(props) {
     super(props);
 
     this.handleChange = this.handleChange.bind(this);
-    this.deleteElement = this.deleteElement.bind(this);
     this.state = {
-      array: props.array,
       input: ''
     };
   }
@@ -25,18 +24,11 @@ class List extends React.Component {
     };
   }
 
-  deleteElement(e) {
-    let id = +e.target.id;
-    console.log(id);
-    this.setState(prev => ({
-      array: prev.array.filter(el => el.id !== id)
-    }));
-  }
-
   editElement() {}
 
   render() {
-    let { array, input } = this.state;
+    let { input } = this.state;
+    let { list } = this.props;
 
     return (
       <div className="List">
@@ -46,12 +38,12 @@ class List extends React.Component {
             placeholder="&#128269; Search"
             onChange={e => this.handleChange(e)}
           ></input>
-          <Link className="search-addButton" to="/edit">
+          <Link className="search-addButton" to="/add">
             Add course
           </Link>
         </div>
         <ul className="list-wrapper">
-          {array.filter(this.filterHandle(input)).map(el => (
+          {list.filter(this.filterHandle(input)).map(el => (
             <ListElement
               object={el}
               deleteElement={this.deleteElement}
@@ -64,4 +56,10 @@ class List extends React.Component {
   }
 }
 
-export default List;
+function mapStateToProps(store) {
+  return {
+    list: store
+  };
+}
+
+export default connect(mapStateToProps)(List);

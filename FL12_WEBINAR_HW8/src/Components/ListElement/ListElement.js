@@ -1,6 +1,8 @@
 import React from 'react';
-import './ListElement.css';
 import { Link } from 'react-router-dom';
+import { deleteElement, editElement } from '../../Redux/actions/actions';
+import { connect } from 'react-redux';
+import './ListElement.css';
 
 class ListElement extends React.Component {
   constructor(props) {
@@ -38,11 +40,11 @@ class ListElement extends React.Component {
             ...
           </button>
           <div className={active ? 'dropdown' : 'dropdown hidden'}>
-            <Link to="/edit">
+            <Link to={`/edit/${id}`}>
               <button
                 id={id}
-                onClick={() => {
-                  console.log();
+                onClick={e => {
+                  editElement(e.target.id);
                 }}
                 className="editBtn"
               >
@@ -52,7 +54,7 @@ class ListElement extends React.Component {
             <button
               id={id}
               onClick={e => {
-                deleteElement(e);
+                deleteElement(e.target.id);
               }}
               className="deleteBtn"
             >
@@ -64,4 +66,14 @@ class ListElement extends React.Component {
     );
   }
 }
-export default ListElement;
+
+function mapStateToProps() {
+  return {};
+}
+
+const mapDispatchToProps = dispatch => ({
+  deleteElement: id => dispatch(deleteElement(id)),
+  editElement: data => dispatch(editElement(data))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListElement);
