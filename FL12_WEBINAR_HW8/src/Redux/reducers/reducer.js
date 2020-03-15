@@ -1,4 +1,4 @@
-import formatDate from '../../Utilities/formatDate';
+import { formatDate } from '../../Utilities/formatDate';
 import RNG from '../../Utilities/RNG';
 
 const reducer = (state, action) => {
@@ -7,10 +7,10 @@ const reducer = (state, action) => {
       let { date, title, description, duration } = action.props;
 
       let elementToPush = {
+        title: title,
+        description: description,
+        duration: duration,
         date: formatDate(date),
-        name: title,
-        subjects: description,
-        time: duration,
         id: RNG()
       };
       return [...state, elementToPush];
@@ -18,12 +18,17 @@ const reducer = (state, action) => {
 
     case 'DELETE_ELEMENT': {
       let { id } = action;
-      let aaa = state.filter(el => el.id !== id);
-      return aaa;
+
+      let filtered = state.filter(el => el.id !== id);
+      return filtered;
     }
 
     case 'EDIT_ELEMENT': {
-      break;
+      let newArray = state;
+      let index = action.data.index;
+      action.data.date = formatDate(action.data.date);
+      newArray[index] = action.data;
+      return newArray;
     }
 
     default:

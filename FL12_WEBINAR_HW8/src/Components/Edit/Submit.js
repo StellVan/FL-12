@@ -2,7 +2,8 @@ import React from 'react';
 import './Submit.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addNew } from '../../Redux/actions/actions';
+import { addNew, editElement } from '../../Redux/actions/actions';
+import { formatDateReverse } from '../../Utilities/formatDate';
 
 class Submit extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class Submit extends React.Component {
 
     this.getInputValues = this.getInputValues.bind(this);
     this.validateValues = this.validateValues.bind(this);
+    this.setEditValues = this.setEditValues.bind(this);
 
     this.state = {
       object: {
@@ -17,10 +19,36 @@ class Submit extends React.Component {
         description: '',
         duration: '',
         date: '',
-        authors: ''
+        authors: '',
+        id: '',
+        index: ''
       },
       validated: false
     };
+  }
+
+  componentDidMount() {
+    if (this.props.header === 'Edit course') {
+      this.setEditValues();
+    }
+    return null;
+  }
+
+  setEditValues() {
+    let id = window.location.hash.split('#')[1];
+    let object = this.props.list.find(el => el.id === id);
+    let { title, description, duration, date } = object;
+
+    this.setState({
+      object: {
+        title: title,
+        description: description,
+        duration: duration,
+        date: formatDateReverse(date),
+        id: id,
+        index: this.props.list.indexOf(object)
+      }
+    });
   }
 
   getInputValues(ev) {
@@ -41,26 +69,28 @@ class Submit extends React.Component {
 
   validateValues() {
     let { title, description, duration, date, authors } = this.state.object;
-
-    if (
-      title.length > 0 &&
-      description.length > 0 &&
-      duration.length > 0 &&
-      date.length > 0 &&
-      authors.length > 0
-    ) {
-      this.setState({
-        validated: true
-      });
-    } else {
-      this.setState({
-        validated: false
-      });
+    if ((title, description, duration, date, authors)) {
+      if (
+        title.length > 0 &&
+        description.length > 0 &&
+        duration.length > 0 &&
+        date.length > 0 &&
+        authors.length > 0
+      ) {
+        this.setState({
+          validated: true
+        });
+      } else {
+        this.setState({
+          validated: false
+        });
+      }
     }
   }
 
   render() {
     let { object, validated } = this.state;
+    let { title, description, duration, date, authors } = object;
     let { header } = this.props;
 
     return (
@@ -77,6 +107,7 @@ class Submit extends React.Component {
                 name="title"
                 type="text"
                 className="titleInput"
+                value={title || ''}
               ></input>
             </div>
 
@@ -88,6 +119,7 @@ class Submit extends React.Component {
                 onChange={this.getInputValues}
                 name="description"
                 className="descriptionInput"
+                value={description || ''}
               ></textarea>
             </div>
 
@@ -100,6 +132,7 @@ class Submit extends React.Component {
                 name="duration"
                 type="text"
                 className="durationInput"
+                value={duration || ''}
               ></input>
             </div>
 
@@ -112,6 +145,7 @@ class Submit extends React.Component {
                 onChange={this.getInputValues}
                 name="authors"
                 className="authorsInput"
+                value={authors || ''}
               ></input>
             </div>
 
@@ -125,6 +159,7 @@ class Submit extends React.Component {
                 placeholder=""
                 type="date"
                 className="dateInput"
+                value={date || ''}
               ></input>
             </div>
           </div>
@@ -136,7 +171,11 @@ class Submit extends React.Component {
                   type="submit"
                   className="submit-save"
                   onClick={() => {
-                    this.props.addNew(object);
+                    if (header === 'Edit course') {
+                      this.props.editElement(object);
+                    } else if (header === 'New course') {
+                      this.props.addNew(object);
+                    }
                   }}
                 >
                   Save
@@ -162,7 +201,8 @@ function mapStateToProps(store) {
   };
 }
 const mapDispatchToProps = dispatch => ({
-  addNew: newElement => dispatch(addNew(newElement))
+  addNew: newElement => dispatch(addNew(newElement)),
+  editElement: newElement => dispatch(editElement(newElement))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Submit);

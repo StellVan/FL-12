@@ -20,11 +20,9 @@ class List extends React.Component {
 
   filterHandle(input) {
     return function(x) {
-      return x.name.toLowerCase().includes(input.toLowerCase());
+      return x.title.toLowerCase().includes(input.toLowerCase());
     };
   }
-
-  editElement() {}
 
   render() {
     let { input } = this.state;
@@ -44,11 +42,7 @@ class List extends React.Component {
         </div>
         <ul className="list-wrapper">
           {list.filter(this.filterHandle(input)).map(el => (
-            <ListElement
-              object={el}
-              deleteElement={this.deleteElement}
-              key={el.id}
-            />
+            <ListElement object={el} key={el.id} />
           ))}
         </ul>
       </div>

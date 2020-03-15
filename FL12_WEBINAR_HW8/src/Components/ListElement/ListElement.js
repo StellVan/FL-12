@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { deleteElement, editElement } from '../../Redux/actions/actions';
+import { deleteElement } from '../../Redux/actions/actions';
 import { connect } from 'react-redux';
 import './ListElement.css';
 
@@ -19,7 +19,7 @@ class ListElement extends React.Component {
   }
 
   render() {
-    let { date, name, subjects, time, id } = this.props.object;
+    let { date, title, description, duration, id } = this.props.object;
     let { deleteElement } = this.props;
     let { active } = this.state;
 
@@ -27,9 +27,9 @@ class ListElement extends React.Component {
       <li className="ListElement" id={id}>
         <div className="ListElement-wrapper">
           <p className="date">{date}</p>
-          <p className="name">{name}</p>
-          <p className="subjects">{subjects}</p>
-          <p className="time">{time}</p>
+          <p className="name">{title}</p>
+          <p className="subjects">{description}</p>
+          <p className="time">{duration}</p>
 
           <button
             onClick={() => {
@@ -40,17 +40,12 @@ class ListElement extends React.Component {
             ...
           </button>
           <div className={active ? 'dropdown' : 'dropdown hidden'}>
-            <Link to={`/edit/${id}`}>
-              <button
-                id={id}
-                onClick={e => {
-                  editElement(e.target.id);
-                }}
-                className="editBtn"
-              >
+            <Link to={`/edit#${id}`}>
+              <button id={id} className="editBtn">
                 Edit
               </button>
             </Link>
+
             <button
               id={id}
               onClick={e => {
@@ -72,8 +67,8 @@ function mapStateToProps() {
 }
 
 const mapDispatchToProps = dispatch => ({
-  deleteElement: id => dispatch(deleteElement(id)),
-  editElement: data => dispatch(editElement(data))
+  deleteElement: id => dispatch(deleteElement(id))
+  // editElement: data => dispatch(editElement(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListElement);
