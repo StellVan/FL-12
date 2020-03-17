@@ -1,0 +1,24 @@
+<div class="mainWrapper">
+  <div class="controlsWrapper">
+    <input placeholder="Search" [(ngModel)]="searchText" class="filter" />
+    <button (click)="listService.addNewContact()" class="addNew">
+      Add New User
+    </button>
+  </div>
+
+  <ul *ngIf="listService.list.length; else noContacts" class="list">
+    <li
+      *ngFor="
+        let el of listService.list | filter: searchText;
+        let index = index
+      "
+      id="{{ index }}"
+    >
+      <app-list-element [list]="el" [index]="index"></app-list-element>
+    </li>
+  </ul>
+
+  <ng-template #noContacts>
+    <p class="noContacts"><i>Empty</i></p>
+  </ng-template>
+</div>
