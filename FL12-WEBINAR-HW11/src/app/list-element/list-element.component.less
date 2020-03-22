@@ -1,0 +1,62 @@
+.abonent {
+  background-color: #f5f5f5;
+  display: grid;
+  justify-content: left;
+  align-items: center;
+  grid-template-columns: 20% 25% 30% 15% 10%;
+  height: 70px;
+  border-radius: 10px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+.form {
+  height: 100%;
+  border-radius: 10px;
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-template-columns: 19% 24% 29% 14% 9%;
+  align-items: center;
+  column-gap: 1%;
+}
+
+.name-text,
+.email-text,
+.number-text {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.name-input,
+.email-input,
+.number-input {
+  border: none;
+  border-bottom: #08b0da 1px solid;
+}
+
+.invalid-input {
+  outline: solid 1px red;
+}
+
+.valid-input {
+  outline: solid 1px green;
+}
+
+.delete,
+.edit,
+.save,
+.discard {
+  border: 2px grey solid;
+  background-color: transparent;
+  border-radius: 20px;
+  height: 60%;
+}
+
+.save:disabled {
+  border: 2px rgb(230, 230, 230) solid;
+  color: rgb(230, 230, 230);
+}
+
+.delete {
+  margin-right: 6%;
+}
