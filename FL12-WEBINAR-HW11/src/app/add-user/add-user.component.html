@@ -1,19 +1,42 @@
 <div>
   <p>New User</p>
-  <form>
+  <form class="form" [formGroup]="form">
     <div>
       <p>Name*</p>
-      <input />
+      <input
+        required
+        class="name-input"
+        formControlName="name"
+        [ngClass]="{
+          'invalid-input': form.get('name').invalid && form.get('name').touched
+        }"
+      />
     </div>
 
     <div>
       <p>Email*</p>
-      <input />
+      <input
+        required
+        class="email-input"
+        formControlName="email"
+        [ngClass]="{
+          'invalid-input':
+            form.get('email').invalid && form.get('email').touched
+        }"
+      />
     </div>
 
     <div>
       <p>Phone*</p>
-      <input />
+      <input
+        required
+        class="number-input"
+        formControlName="phone"
+        [ngClass]="{
+          'invalid-input':
+            form.get('phone').invalid && form.get('phone').touched
+        }"
+      />
     </div>
 
     <div>
@@ -27,7 +50,14 @@
     </div>
 
     <div>
-      <button>Save</button>
+      <button
+        type="button"
+        [disabled]="form.invalid"
+        class="save"
+        (click)="savebtn(id)"
+      >
+        Save
+      </button>
       <button>Discard</button>
     </div>
   </form>

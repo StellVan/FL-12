@@ -1,25 +1,35 @@
 import { Injectable } from "@angular/core";
-import { from, pipe, Observable, Subject } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { tap } from "rxjs/operators";
+import { Router } from "@angular/router";
 
 export interface Abonent {
   name: string;
   email: string;
   phone: string;
-  edit: boolean;
-  added: boolean;
 }
 
 @Injectable({ providedIn: "root" })
 export class ContactsService {
   private url: string = "http://localhost:3000/users";
   public refresh = new Subject();
+  public list: any = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   getContacts(): Observable<{}> {
     return this.http.get(this.url);
+  }
+
+  getUsers() {
+    this.getContacts().subscribe(
+      el => (this.list = el),
+      null,
+      () => {
+        console.log(this.list);
+      }
+    );
   }
 
   deleteContact(index: number) {
@@ -35,20 +45,21 @@ export class ContactsService {
   }
 
   addNewContact(): void {
-    // this.list.unshift({
-    //   name: "",
-    //   email: "",
-    //   number: "",
-    //   edit: true,
-    //   added: false
-    // });
+    this.router.navigate(["users/new"]);
   }
 
-  saveChanges(index: number, form: any): void {
+  saveChanges(index: number, form: Abonent): void {
+    let dataToPush: Abonent = {
+      name: form.name,
+      email: form.email,
+      phone: form.phone
+    };
+
+    this.http.post(this.url, dataToPush).subscribe(() => {
+      this.router.navigate(["users"]);
+    });
     // this.list[index].name = form.name;
     // this.list[index].email = form.email;
     // this.list[index].number = form.number;
-    // this.list[index].edit = false;
-    // this.list[index].added = true;
   }
 }

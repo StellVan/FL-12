@@ -7,7 +7,16 @@ import { AddUserComponent } from "./add-user/add-user.component";
 const appRoutes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "users" },
   { path: "users", component: ListComponent },
-  { path: "users/new", component: AddUserComponent }
+  {
+    path: "users/new",
+    component: AddUserComponent,
+    data: { title: "New User" }
+  },
+  {
+    path: "users/edit",
+    component: AddUserComponent,
+    data: { title: "Edit User" }
+  }
 ];
 
 @NgModule({

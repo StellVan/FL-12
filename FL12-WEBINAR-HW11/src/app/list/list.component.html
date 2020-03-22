@@ -6,8 +6,11 @@
     </button>
   </div>
 
-  <ul *ngIf="list.length; else noContacts" class="list">
-    <li *ngFor="let el of list | filter: searchText" id="{{ el.id }}">
+  <ul *ngIf="listService.list.length; else noContacts" class="list">
+    <li
+      *ngFor="let el of listService.list | filter: searchText"
+      id="{{ el.id }}"
+    >
       <app-list-element [list]="el" [index]="el.id"></app-list-element>
     </li>
   </ul>

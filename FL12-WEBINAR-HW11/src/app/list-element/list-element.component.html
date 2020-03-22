@@ -1,20 +1,19 @@
 <div class="abonent">
-  <p *ngIf="!list.edit" class="name-text">{{ list.name }}</p>
-  <p *ngIf="!list.edit" class="email-text">{{ list.email }}</p>
-  <p *ngIf="!list.edit" class="number-text">{{ list.phone }}</p>
+  <p class="name-text">{{ list.name }}</p>
+  <p class="email-text">{{ list.email }}</p>
+  <p class="number-text">{{ list.phone }}</p>
 
   <button
-    *ngIf="!list.edit"
     (click)="listService.deleteContact(index)"
     class="delete"
     type="button"
   >
     Delete
   </button>
-  <button *ngIf="!list.edit" (click)="editToogle()" class="edit" type="button">
+  <button (click)="editToogle()" class="edit" type="button">
     Edit
   </button>
-
+  <!--
   <form class="form" *ngIf="list.edit" [formGroup]="form">
     <input
       required
@@ -50,8 +49,8 @@
     >
       Save
     </button>
-    <button class="discard" (click)="discardChanges(index)" type="button">
+    <button class="discard"  type="button">
       Discard
     </button>
-  </form>
+  </form> -->
 </div>

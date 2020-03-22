@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { ContactsService } from "../shared/contacts.service";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { Abonent } from "../shared/contacts.service";
 
 @Component({
@@ -12,7 +13,7 @@ export class ListElementComponent implements OnInit {
   @Input() list: Abonent;
   @Input() index: number;
 
-  constructor(public listService: ContactsService) {}
+  constructor(public listService: ContactsService, private router: Router) {}
 
   buttonStatus: boolean = true;
 
@@ -23,24 +24,16 @@ export class ListElementComponent implements OnInit {
   });
 
   editToogle() {
+    this.router.navigate(["users/edit"]);
     this.form = new FormGroup({
       name: new FormControl(this.list.name),
       email: new FormControl(this.list.email),
       number: new FormControl(this.list.phone)
     });
-    this.list.edit = true;
   }
 
   savebtn(index: number): void {
     this.listService.saveChanges(index, this.form.value);
-  }
-
-  discardChanges(index: number): void {
-    if (this.list.added) {
-      this.list.edit = false;
-    } else if (!this.list.added) {
-      this.listService.deleteContact(index);
-    }
   }
 
   ngOnInit(): void {}

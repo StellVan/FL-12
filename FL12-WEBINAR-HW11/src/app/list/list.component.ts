@@ -9,24 +9,14 @@ import { Observable } from "rxjs";
 })
 export class ListComponent implements OnInit {
   searchText: string = "";
-  public list: any = [];
-  constructor(public listService: ContactsService) {}
 
-  private getUsers() {
-    this.listService.getContacts().subscribe(
-      el => (this.list = el),
-      null,
-      () => {
-        console.log(this.list);
-      }
-    );
-  }
+  constructor(public listService: ContactsService) {}
 
   ngOnInit(): void {
     this.listService.refresh.subscribe(() => {
-      this.getUsers();
+      this.listService.getUsers();
     });
 
-    this.getUsers();
+    this.listService.getUsers();
   }
 }
