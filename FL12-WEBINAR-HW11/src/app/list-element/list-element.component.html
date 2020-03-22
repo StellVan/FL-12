@@ -10,47 +10,7 @@
   >
     Delete
   </button>
-  <button (click)="editToogle()" class="edit" type="button">
+  <button disabled="true" class="edit" type="button">
     Edit
   </button>
-  <!--
-  <form class="form" *ngIf="list.edit" [formGroup]="form">
-    <input
-      required
-      class="name-input"
-      formControlName="name"
-      [ngClass]="{
-        'invalid-input': form.get('name').invalid && form.get('name').touched
-      }"
-    />
-    <input
-      required
-      class="email-input"
-      formControlName="email"
-      [ngClass]="{
-        'invalid-input': form.get('email').invalid && form.get('email').touched
-      }"
-    />
-    <input
-      required
-      class="number-input"
-      formControlName="number"
-      [ngClass]="{
-        'invalid-input':
-          form.get('number').invalid && form.get('number').touched
-      }"
-    />
-
-    <button
-      type="button"
-      [disabled]="form.invalid"
-      (click)="savebtn(index)"
-      class="save"
-    >
-      Save
-    </button>
-    <button class="discard"  type="button">
-      Discard
-    </button>
-  </form> -->
 </div>

@@ -1,4 +1,5 @@
 <div>
+  <button type="button" (click)="backToMainPage()">Back to main page</button>
   <p>New User</p>
   <form class="form" [formGroup]="form">
     <div>
@@ -41,7 +42,7 @@
 
     <div>
       <p>Address</p>
-      <input formControlName="adress" />
+      <input formControlName="address" />
     </div>
 
     <div>
@@ -54,11 +55,13 @@
         type="button"
         [disabled]="form.invalid"
         class="save"
-        (click)="savebtn(id)"
+        (click)="savebtn()"
       >
         Save
       </button>
-      <button>Discard</button>
+      <button type="button" (click)="discardChanges()">
+        Discard
+      </button>
     </div>
   </form>
 </div>

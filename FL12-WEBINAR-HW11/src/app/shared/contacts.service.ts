@@ -9,7 +9,7 @@ export interface Abonent {
   name: string;
   email: string;
   phone: string;
-  adress?: string;
+  adress?: {};
   website?: string;
 }
 
@@ -60,7 +60,7 @@ export class ContactsService {
     this.router.navigate(["users/new"]);
   }
 
-  saveChanges(index: number, form: Abonent): void {
+  saveChanges(form: Abonent, index?: number): void {
     let dataToPush: Abonent = {
       id: this.RNG(),
       name: form.name,
@@ -73,8 +73,5 @@ export class ContactsService {
     this.http.post(this.url, dataToPush).subscribe(() => {
       this.router.navigate(["users"]);
     });
-    // this.list[index].name = form.name;
-    // this.list[index].email = form.email;
-    // this.list[index].number = form.number;
   }
 }

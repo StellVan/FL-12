@@ -24,16 +24,7 @@ export class ListElementComponent implements OnInit {
   });
 
   editToogle() {
-    this.router.navigate(["users/edit"]);
-    this.form = new FormGroup({
-      name: new FormControl(this.list.name),
-      email: new FormControl(this.list.email),
-      number: new FormControl(this.list.phone)
-    });
-  }
-
-  savebtn(index: number): void {
-    this.listService.saveChanges(index, this.form.value);
+    this.router.navigate([`users/${this.list.id}`]);
   }
 
   ngOnInit(): void {}

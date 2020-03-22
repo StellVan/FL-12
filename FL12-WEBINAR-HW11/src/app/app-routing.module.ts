@@ -13,7 +13,7 @@ const appRoutes: Routes = [
     data: { title: "New User" }
   },
   {
-    path: "users/edit",
+    path: "users/:id",
     component: AddUserComponent,
     data: { title: "Edit User" }
   }

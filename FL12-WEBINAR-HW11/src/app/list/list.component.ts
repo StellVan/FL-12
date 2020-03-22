@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { ContactsService } from "../shared/contacts.service";
-import { Observable } from "rxjs";
 
 @Component({
   selector: "app-list",

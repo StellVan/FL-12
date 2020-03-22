@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ContactsService } from "../shared/contacts.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 @Component({
@@ -14,20 +14,36 @@ export class AddUserComponent implements OnInit {
     name: new FormControl("", Validators.required),
     email: new FormControl("", Validators.required),
     phone: new FormControl("", Validators.required),
-    adress: new FormControl(""),
+    address: new FormControl(""),
     website: new FormControl("")
   });
 
   constructor(
     public listService: ContactsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
-  savebtn(index?: number): void {
-    this.listService.saveChanges(index, this.form.value);
+  savebtn(): void {
+    if (this.id) {
+      this.listService.saveChanges(this.form.value, this.id);
+    }
+    this.listService.saveChanges(this.form.value);
   }
 
-  ngOnInit(): void {
-    this.id = this.route.snapshot.params.id;
+  backToMainPage() {
+    this.router.navigate(["users"]);
   }
+
+  discardChanges(): void {
+    this.form = new FormGroup({
+      name: new FormControl("", Validators.required),
+      email: new FormControl("", Validators.required),
+      phone: new FormControl("", Validators.required),
+      address: new FormControl(""),
+      website: new FormControl("")
+    });
+  }
+
+  ngOnInit(): void {}
 }
