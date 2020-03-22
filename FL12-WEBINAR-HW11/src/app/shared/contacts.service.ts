@@ -5,9 +5,12 @@ import { tap } from "rxjs/operators";
 import { Router } from "@angular/router";
 
 export interface Abonent {
+  id: string;
   name: string;
   email: string;
   phone: string;
+  adress?: string;
+  website?: string;
 }
 
 @Injectable({ providedIn: "root" })
@@ -17,6 +20,15 @@ export class ContactsService {
   public list: any = [];
 
   constructor(private http: HttpClient, private router: Router) {}
+
+  private RNG() {
+    return (
+      "_" +
+      Math.random()
+        .toString(36)
+        .substr(2, 9)
+    );
+  }
 
   getContacts(): Observable<{}> {
     return this.http.get(this.url);
@@ -50,9 +62,12 @@ export class ContactsService {
 
   saveChanges(index: number, form: Abonent): void {
     let dataToPush: Abonent = {
+      id: this.RNG(),
       name: form.name,
       email: form.email,
-      phone: form.phone
+      phone: form.phone,
+      adress: form.adress,
+      website: form.website
     };
 
     this.http.post(this.url, dataToPush).subscribe(() => {

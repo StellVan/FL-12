@@ -13,7 +13,9 @@ export class AddUserComponent implements OnInit {
   form = new FormGroup({
     name: new FormControl("", Validators.required),
     email: new FormControl("", Validators.required),
-    phone: new FormControl("", Validators.required)
+    phone: new FormControl("", Validators.required),
+    adress: new FormControl(""),
+    website: new FormControl("")
   });
 
   constructor(
