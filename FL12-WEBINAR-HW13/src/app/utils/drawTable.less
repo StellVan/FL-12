@@ -1,0 +1,31 @@
+.border {
+  border: solid 2px black;
+  width: 200px;
+  height: 200px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+}
+
+.row:first-of-type .border {
+  border-top: none;
+}
+
+.row:last-of-type .border {
+  border-bottom: none;
+}
+
+.border:nth-of-type(1) {
+  border-left: none;
+}
+
+.border:nth-of-type(3) {
+  border-right: none;
+}
+
+.red {
+  color: red;
+}
